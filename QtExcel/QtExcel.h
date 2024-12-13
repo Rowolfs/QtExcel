@@ -8,7 +8,7 @@
 #include <QRandomGenerator>
 #include <qmessagebox.h>
 
-
+// This is qtExcel++
 
 
 
