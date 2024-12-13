@@ -143,12 +143,15 @@
      <rect>
       <x>490</x>
       <y>230</y>
-      <width>101</width>
+      <width>111</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
      <string>По возрастанию</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="labelFindValley">
@@ -164,7 +167,7 @@
      <string>Искомое число</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="findValley">
+   <widget class="QLineEdit" name="editSearch">
     <property name="geometry">
      <rect>
       <x>490</x>
