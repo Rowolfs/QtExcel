@@ -47,21 +47,20 @@ void Table::setTableSize(int rowCount, int columnCount) {
 }
 
 void Table::tableWidget_itemEdit(QTableWidgetItem* item) {
-    if (!item) return;  // Проверяем, что элемент существует
+    if (!item) return;  
     int row = item->row();
     int column = item->column();
     QString cellValue = item->text();  // Получаем новое значение ячейки
     if (row >= 0 && row < data.size() && column >= 0 && column < data[row].size()) {
-        data[row][column] = cellValue;  // Обновляем данные
+        cellValue = QtExcel::checkTableValue(cellValue, row, column);
+        data[row][column] = cellValue;
+        item->setText(cellValue); // Обновляем данные
     }
+	
+    
 }
 
 void Table::fillColumn(QList<QString> values,int collumn) {
-
-    if (data.size() == 0) {
-        setTableSize(1, 1);
-        this->render();
-    }
 
     if (collumn > data[0].size()) {
         return;
@@ -75,6 +74,91 @@ void Table::fillColumn(QList<QString> values,int collumn) {
 
 }
 
+void Table::render() {
+    ui->tableWidget->setRowCount(rowCount);
+    ui->tableWidget->setColumnCount(columnCount);
+    for (int i = 0; i < data.size(); i++)
+    {
+        for (int j = 0; j < data[i].size(); j++) {
+
+            if (!ui->tableWidget->item(i, j)) {
+                ui->tableWidget->setItem(i, j, new QTableWidgetItem());
+            }
+            ui->tableWidget->item(i, j)->setText(data[i][j]);
+
+
+        }
+    }
+
+}
+
+
+void Table::setCell(int row, int column, const QString& value) {
+    // Обновляем данные в массиве
+    data[row][column] = value;
+
+    // Получаем ячейку таблицы
+    QTableWidgetItem* item = ui->tableWidget->item(row, column);
+
+    // Если ячейка не существует, создаем ее
+    if (!item) {
+        item = new QTableWidgetItem(); // Создаем новую ячейку
+        ui->tableWidget->setItem(row, column, item); // Устанавливаем ее в таблицу
+    }
+
+    // Устанавливаем новое значение текста в ячейке
+    item->setText(value);
+}
+
+void Table::sort(bool reverse) {
+
+
+}
+
+
+void Table::swapIntForSort(QString& a, QString& b, bool reverse) {
+    bool ok1, ok2;
+    int val1 = a.toInt(&ok1); // Преобразуем строку a в число
+    int val2 = b.toInt(&ok2); // Преобразуем строку b в число
+
+    QString temp;
+
+    // Если оба значения можно преобразовать в числа
+    if (ok1 && ok2) {
+        if (reverse) {
+            // Если reverse = true, сортируем по убыванию
+            if (val1 < val2) {
+                temp = b;
+                b = a;
+                a = temp;
+            }
+        }
+        else {
+            // Если reverse = false, сортируем по возрастанию
+            if (val1 > val2) {
+                temp = b;
+                b = a;
+                a = temp;
+            }
+        }
+    }
+    else if (ok2)
+    {
+        temp = b;
+        b = a;
+        a = temp;
+    }
 
 
 
+}
+void Table::fillRow(QList<QString> values, int row) {
+	if (row > data.size()) {
+		return;
+	}
+	int deep = std::min(data[row].size(), values.size());
+	for (int i = 0; i < deep; i++)
+	{
+		data[row][i] = values[i];
+	}
+}

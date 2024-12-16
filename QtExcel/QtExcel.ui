@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>667</width>
-    <height>659</height>
+    <width>1012</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>20</x>
       <y>80</y>
-      <width>461</width>
-      <height>431</height>
+      <width>581</width>
+      <height>611</height>
      </rect>
     </property>
    </widget>
@@ -63,7 +63,7 @@
    <widget class="QPushButton" name="fillRandom">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>600</x>
       <y>40</y>
       <width>241</width>
       <height>24</height>
@@ -76,7 +76,7 @@
    <widget class="QPushButton" name="minimum">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>680</x>
       <y>90</y>
       <width>80</width>
       <height>24</height>
@@ -89,7 +89,7 @@
    <widget class="QPushButton" name="average">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>680</x>
       <y>120</y>
       <width>80</width>
       <height>24</height>
@@ -102,7 +102,7 @@
    <widget class="QPushButton" name="maximum">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>680</x>
       <y>150</y>
       <width>80</width>
       <height>24</height>
@@ -115,8 +115,8 @@
    <widget class="QPushButton" name="sort">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>260</y>
+      <x>680</x>
+      <y>250</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -128,8 +128,8 @@
    <widget class="QRadioButton" name="Descending">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>200</y>
+      <x>660</x>
+      <y>190</y>
       <width>101</width>
       <height>22</height>
      </rect>
@@ -141,8 +141,8 @@
    <widget class="QRadioButton" name="Ascending">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>230</y>
+      <x>660</x>
+      <y>220</y>
       <width>111</width>
       <height>22</height>
      </rect>
@@ -154,40 +154,143 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="labelFindValley">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>380</y>
-      <width>91</width>
-      <height>16</height>
+      <x>610</x>
+      <y>300</y>
+      <width>231</width>
+      <height>201</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Искомое число</string>
+    <property name="minimumSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>30</y>
+       <width>160</width>
+       <height>164</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="4" column="0">
+       <widget class="QRadioButton" name="FamilyRadioButton">
+        <property name="text">
+         <string>По Отчеству</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QRadioButton" name="NameRadioButton">
+        <property name="text">
+         <string>По Имени</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QRadioButton" name="PhoneNumberradioButton">
+        <property name="text">
+         <string>По номеру телефона</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QRadioButton" name="SurnamesRadioButton">
+        <property name="text">
+         <string>По Фамилии</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QRadioButton" name="EmailRadioButton">
+        <property name="text">
+         <string>По электроной почте</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QRadioButton" name="IdRadioButton">
+        <property name="text">
+         <string>По id</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
-   <widget class="QLineEdit" name="editSearch">
+   <widget class="QSplitter" name="splitter">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>400</y>
-      <width>113</width>
+      <x>670</x>
+      <y>530</y>
+      <width>108</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Orientation::Vertical</enum>
+    </property>
+    <widget class="QLabel" name="labelFindValley">
+     <property name="text">
+      <string>Искомое число</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editSearch"/>
+    <widget class="QPushButton" name="search">
+     <property name="text">
+      <string>Поиск</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="deleteDuplicates">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>90</y>
+      <width>161</width>
       <height>24</height>
      </rect>
     </property>
+    <property name="text">
+     <string>Удаление дупликатов</string>
+    </property>
    </widget>
-   <widget class="QPushButton" name="search">
+   <widget class="QPushButton" name="jsonOutput">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>430</y>
-      <width>80</width>
-      <height>24</height>
+      <x>820</x>
+      <y>250</y>
+      <width>171</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Поиск</string>
+     <string>Выгрузка таблицы в json</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="jsonInput">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>283</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Загрузка таблицы из json</string>
     </property>
    </widget>
   </widget>
@@ -196,7 +299,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>667</width>
+     <width>1012</width>
      <height>21</height>
     </rect>
    </property>
@@ -213,7 +316,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="QtExcel.qrc"/>
+  <include location="../../QtExcel++/QtExcel++/QtExcel.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -92,7 +92,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="emailGenerator.cpp" />
     <ClCompile Include="Table.cpp" />
+    <ClCompile Include="User.cpp" />
     <QtRcc Include="QtExcel.qrc" />
     <QtUic Include="QtExcel.ui" />
     <QtMoc Include="QtExcel.h" />
@@ -101,6 +103,10 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Table.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="emailGenerator.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
